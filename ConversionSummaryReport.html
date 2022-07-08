@@ -1,0 +1,166 @@
+<html><style>
+h1 { font-size: 1.5em; }
+h2 { font-size: 1.25em; padding: 13px 0px 0px 0px;}
+h3 { font-size: 1em; padding: 5px 0px 0px 0px; margin : 0 0 0 0}
+.typeLabel { padding: 5px 0px 0px 10px; }
+.rejectedFileLabel { padding: 2px 0px 10px 10px; }
+.changeSummaryLine { padding: 2px 0px 10px 15px; }
+.rejectedFileTextMessage { padding: 0px 0px 10px 0px; }
+.table { padding: 5px 0px 5px 10px;}
+.changeDetail { padding: 3px 0px 0px 0px}
+.odd { }
+.even {}
+</style>
+<body>
+<h1>Conversion Summary Report</h1>
+<h2> Summary of Transformations </h2>
+<div class="changeSummaryLine">
+<b style="color:#FF0000;">MORE INFORMATION NEEDED!</b>
+1 integration runtimes need to be created to replace v1 gateways.</div><div class="changeSummaryLine">
+1 times we changed the type of a linked service to match new type names in v2.</div><div class="changeSummaryLine">
+3 times we added a parameter to a Pipeline.</div><div class="changeSummaryLine">
+3 times we added a parameter to a Dataset.</div><div class="changeSummaryLine">
+15 times we converted the 'linkedServiceName' property to use the new reference specification syntax.</div><div class="changeSummaryLine">
+4 ConnectionStrings were converted to use the new SecureString specification syntax.</div><div class="changeSummaryLine">
+3 different properties were removed and reconfigured inside of a Trigger</div><div class="changeSummaryLine">
+8 different properties were removed because they are no longer required.</div><div class="changeSummaryLine">
+5 different properties were removed because they are no longer supported in ADF.</div><div class="changeSummaryLine">
+10 different expressions were converted to use the new expression syntax.</div><div class="changeSummaryLine">
+4 times we converted a scheduler on an activity or dataset. In tumbling window triggers, only hours and minutes are allowed.</div><h2>Linked Services</h2>
+<h3>AzureSqlLinkedService</h3>
+<div class="typeLabel">Type: AzureSqlDatabase</div>
+<div class="table">
+<div class="changeDetail odd">Converted the connectionString property to use a SecureString specification.</div>
+</div>
+<h3>HDInsightStorageLinkedService</h3>
+<div class="typeLabel">Type: AzureStorage</div>
+<div class="table">
+<div class="changeDetail odd">Converted the connectionString property to use a SecureString specification.</div>
+</div>
+<h3>OnPremSqlServerLinkedService</h3>
+<div class="typeLabel">Type: SqlServer</div>
+<div class="table">
+<div class="changeDetail odd">Changed linked service type to v2 equivalent.</div>
+<div class="changeDetail even">Converted the connectionString property to use a SecureString specification.</div>
+<div class="changeDetail odd">Converted gateway reference to integration runtime reference. You must create the referenced Integration Runtime.</div>
+</div>
+<h3>StorageLinkedService</h3>
+<div class="typeLabel">Type: AzureStorage</div>
+<div class="table">
+<div class="changeDetail odd">Converted the connectionString property to use a SecureString specification.</div>
+</div>
+<h2>Datasets</h2>
+<h3>EnrichedGameEventsTable</h3>
+<div class="typeLabel">Type: AzureBlob</div>
+<div class="table">
+<div class="changeDetail odd">Converted the folderPath property to use the new expression syntax.</div>
+<div class="changeDetail even">Removed partitionedBy property and will move that information to a TumblingWindowTrigger.</div>
+<div class="changeDetail odd">Converted the linkedServiceName property to use the new reference specification syntax.</div>
+<div class="changeDetail even">Added parameters to dataset.</div>
+</div>
+<h3>MarketingCampaignEffectivenessBlobTable</h3>
+<div class="typeLabel">Type: AzureBlob</div>
+<div class="table">
+<div class="changeDetail odd">Converted the folderPath property to use the new expression syntax.</div>
+<div class="changeDetail even">Removed partitionedBy property and will move that information to a TumblingWindowTrigger.</div>
+<div class="changeDetail odd">Converted the linkedServiceName property to use the new reference specification syntax.</div>
+<div class="changeDetail even">Added parameters to dataset.</div>
+</div>
+<h3>MarketingCampaignEffectivenessOnPremSQLTable</h3>
+<div class="typeLabel">Type: SqlServerTable</div>
+<div class="table">
+<div class="changeDetail odd">Converted the linkedServiceName property to use the new reference specification syntax.</div>
+</div>
+<h3>MarketingCampaignEffectivenessSQLTable</h3>
+<div class="typeLabel">Type: AzureSqlTable</div>
+<div class="table">
+<div class="changeDetail odd">Converted the linkedServiceName property to use the new reference specification syntax.</div>
+</div>
+<h3>PartitionedGameEventsTable</h3>
+<div class="typeLabel">Type: AzureBlob</div>
+<div class="table">
+<div class="changeDetail odd">Converted the folderPath property to use the new expression syntax.</div>
+<div class="changeDetail even">Removed partitionedBy property and will move that information to a TumblingWindowTrigger.</div>
+<div class="changeDetail odd">Converted the linkedServiceName property to use the new reference specification syntax.</div>
+<div class="changeDetail even">Added parameters to dataset.</div>
+</div>
+<h3>RawGameEventsTable</h3>
+<div class="typeLabel">Type: AzureBlob</div>
+<div class="table">
+<div class="changeDetail odd">Converted the linkedServiceName property to use the new reference specification syntax.</div>
+</div>
+<h3>RefGeoCodeDictionaryTable</h3>
+<div class="typeLabel">Type: AzureBlob</div>
+<div class="table">
+<div class="changeDetail odd">Converted the linkedServiceName property to use the new reference specification syntax.</div>
+</div>
+<h3>RefMarketingCampaignTable</h3>
+<div class="typeLabel">Type: AzureBlob</div>
+<div class="table">
+<div class="changeDetail odd">Converted the linkedServiceName property to use the new reference specification syntax.</div>
+</div>
+<h2>Pipelines</h2>
+<h3>AnalyzeMarketingCampaignPipeline</h3>
+<div class="table">
+<div class="changeDetail odd">Converted defines.CampaignOutput property to use the new Expression syntax.</div>
+<div class="changeDetail even">Converted defines.EventsInput property to use the new Expression syntax.</div>
+<div class="changeDetail odd">JoinData: Removed inputs property, which is no longer required for this activity type.</div>
+<div class="changeDetail even">JoinData: Removed inputs property, which is no longer required for this activity type.</div>
+<div class="changeDetail odd">JoinData: Removed outputs property, which is no longer required for this activity type.</div>
+<div class="changeDetail even">JoinData: Removed policy.executionPriorityOrder property, which is no longer supported.</div>
+<div class="changeDetail odd">JoinData: Converted the linkedServiceName property to use the new reference specification syntax.</div>
+<div class="changeDetail even">EgressDataAzure: Converted the input name property to use the new reference specification syntax.</div>
+<div class="changeDetail odd">EgressDataAzure: Converted the output name property to use the new reference specification syntax.</div>
+<div class="changeDetail even">EgressDataAzure: Removed policy.executionPriorityOrder property, which is no longer supported.</div>
+<div class="changeDetail odd">Added parameters to pipeline.</div>
+</div>
+<h3>EgressDataToOnPremPipeline</h3>
+<div class="table">
+<div class="changeDetail odd">EgressDataToSqlServer: Converted the input name property to use the new reference specification syntax.</div>
+<div class="changeDetail even">EgressDataToSqlServer: Converted the output name property to use the new reference specification syntax.</div>
+<div class="changeDetail odd">EgressDataToSqlServer: Removed policy.executionPriorityOrder property, which is no longer supported.</div>
+</div>
+<h3>EnrichGameLogsPipeline</h3>
+<div class="table">
+<div class="changeDetail odd">Converted defines.LOGOUTPUT property to use the new Expression syntax.</div>
+<div class="changeDetail even">Converted defines.LOGINPUT property to use the new Expression syntax.</div>
+<div class="changeDetail odd">PigEnrichLogs: Removed inputs property, which is no longer required for this activity type.</div>
+<div class="changeDetail even">PigEnrichLogs: Removed inputs property, which is no longer required for this activity type.</div>
+<div class="changeDetail odd">PigEnrichLogs: Removed outputs property, which is no longer required for this activity type.</div>
+<div class="changeDetail even">PigEnrichLogs: Removed policy.executionPriorityOrder property, which is no longer supported.</div>
+<div class="changeDetail odd">PigEnrichLogs: Converted the linkedServiceName property to use the new reference specification syntax.</div>
+<div class="changeDetail even">Added parameters to pipeline.</div>
+</div>
+<h3>PartitionGameLogsPipeline</h3>
+<div class="table">
+<div class="changeDetail odd">Converted defines.Day property to use the new Expression syntax.</div>
+<div class="changeDetail even">Converted defines.Month property to use the new Expression syntax.</div>
+<div class="changeDetail odd">Converted defines.Year property to use the new Expression syntax.</div>
+<div class="changeDetail even">BlobPartitionHiveActivity: Removed inputs property, which is no longer required for this activity type.</div>
+<div class="changeDetail odd">BlobPartitionHiveActivity: Removed outputs property, which is no longer required for this activity type.</div>
+<div class="changeDetail even">BlobPartitionHiveActivity: Removed policy.executionPriorityOrder property, which is no longer supported.</div>
+<div class="changeDetail odd">BlobPartitionHiveActivity: Converted the linkedServiceName property to use the new reference specification syntax.</div>
+<div class="changeDetail even">Added parameters to pipeline.</div>
+</div>
+<h2>Triggers</h2>
+<h3>AnalyzeMarketingCampaignPipeline_Trigger</h3>
+<div class="typeLabel">Type: trigger</div>
+<div class="table">
+<div class="changeDetail odd">Converted Day to Hour to match Tumbling Window Trigger frequency specification. As a result we changed the interval from 1 to 24. Please verify that these changes work for your workflow.</div>
+</div>
+<h3>EgressDataToOnPremPipeline_Trigger</h3>
+<div class="typeLabel">Type: trigger</div>
+<div class="table">
+<div class="changeDetail odd">Converted Day to Hour to match Tumbling Window Trigger frequency specification. As a result we changed the interval from 1 to 24. Please verify that these changes work for your workflow.</div>
+</div>
+<h3>EnrichGameLogsPipeline_Trigger</h3>
+<div class="typeLabel">Type: trigger</div>
+<div class="table">
+<div class="changeDetail odd">Converted Day to Hour to match Tumbling Window Trigger frequency specification. As a result we changed the interval from 1 to 24. Please verify that these changes work for your workflow.</div>
+</div>
+<h3>PartitionGameLogsPipeline_Trigger</h3>
+<div class="typeLabel">Type: trigger</div>
+<div class="table">
+<div class="changeDetail odd">Converted Day to Hour to match Tumbling Window Trigger frequency specification. As a result we changed the interval from 1 to 24. Please verify that these changes work for your workflow.</div>
+</div>
+</body></html>
